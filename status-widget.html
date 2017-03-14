@@ -1,16 +1,20 @@
 <!-- TODO: remove jQuery before publishing -->
-<script
+<!-- <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 <!-- TODO: provide script content separately -->
 <script src="assets/script.js"></script>
 <!-- TODO: provide style content separately -->
 <link type="css" rel="assets/style.css">
+
 <div class="status-container">
-    <div id="status-groups"></div>
-    <div>See full list at <a href="http://status.carpenoctem.co">status.carpenoctem.co</a></div>
+    <div id="status-content"></div>
+    <hr/>
+    <div class="status-full-link-reference">
+        See full list at <a href="http://status.carpenoctem.co">status.carpenoctem.co</a>
+    </div>
 </div>
 
 <script id="cachet-group-template" type="x-tmpl-mustache">
@@ -23,11 +27,13 @@
     </div>
     {{/groups}}
 </script>
-
 <script id="cachet-component-template" type="x-tmpl-mustache">
     <div id="status-component-{{id}}" class="status-component">
         <div class="status-component-name">{{name}}</div>
         <div class="status-component-status">{{statusName}}</div>
         <div class="clearing"></div>
     </div>
+</script>
+<script id="cachet-error" type="x-tmpl-mustache">
+    <div class="status-error-display">An error has occured retrieving services status</div>
 </script>

@@ -9,40 +9,35 @@ function refresh() {
 function getComponentsGroups(callback) {
     var url = config.cachet_api_url + "components/groups";
     var onSuccess = function(response) {
-        console.log(response);
         if(response.data)
             callback(response.data);
     }
     var ajaxOptions = {
         url: url,
-        success: onSuccess
+        success: onSuccess,
+        error: displayError
     };
 
     $.ajax(ajaxOptions);
 }
 
 function updateUI(groups) {
-    // Create rendering objects
-    // var mustacheData = { groups: [
-    //     {   id: 1,
-    //         name: "group1",
-    //         components: [
-    //             {   name: "component1",
-    //                 status: "operating"
-    //             }]
-    //     }]
-    // }
 
     var mustacheData = parseComponentGroups(groups);
-
-    console.log(mustacheData);
 
     var groupTemplate = $("#cachet-group-template").html();
     var componentTemplate = $("#cachet-component-template").html();
     var partials = {component: componentTemplate};
     var content = Mustache.render(groupTemplate, mustacheData, partials);
 
-    $("#status-groups").html(content);
+    $("#status-content").html(content);
+}
+
+function displayError(error) {
+    var errorTemplate = $("#cachet-error").html();
+    var errorContent = Mustache.render(errorTemplate, {});
+
+    $("#status-content").html(errorContent);
 }
 
 function parseComponentGroups(groups) {
@@ -50,11 +45,8 @@ function parseComponentGroups(groups) {
     var groupsList = [];
     var j = 0;
 
-    console.log(groups.length + " groups to parse");
-
     for(var i = 0; i < groups.length; i++) {
         if(groupHasComponents(groups[i])) {
-            console.log("Parsing " + i + " group");
             groupsList[j] = parseSingleGroup(groups[i]);
             j++;
         }
