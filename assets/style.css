@@ -1,0 +1,21 @@
+.status-group {
+    margin-bottom: 10px;
+}
+.status-group-name {
+    font-weight: bold;
+}
+.status-component {
+    margin: 4px 0;
+}
+.status-component-name {
+    width: 58%;
+    float: left;
+}
+.status-component-status {
+    width: 40%;
+    text-align: right;
+    float:right;
+}
+.clearing {
+    clear: both;
+}
