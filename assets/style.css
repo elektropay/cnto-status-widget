@@ -9,11 +9,11 @@
     margin: 4px 0;
 }
 .status-component-name {
-    width: 58%;
+    width: 90%;
     float: left;
 }
 .status-component-status {
-    width: 40%;
+    width: 5%;
     text-align: right;
     float:right;
 }
@@ -27,4 +27,16 @@
 }
 .status-full-link-reference {
     margin-top: 10px;
+}
+.status-code-1 {
+    color: #87d631;
+}
+.status-code-2 {
+    color: #f8dda4;
+}
+.status-code-3 {
+    color: #ff6f6f;
+}
+.status-code-4 {
+    color: #ff6f6f;
 }

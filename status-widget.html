@@ -4,6 +4,7 @@
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://use.fontawesome.com/608f395a15.js"></script>
 <!-- TODO: provide script content separately -->
 <script src="assets/script.js"></script>
 <!-- TODO: provide style content separately -->
@@ -13,14 +14,14 @@
     <div id="status-content"></div>
     <hr/>
     <div class="status-full-link-reference">
-        See full list at <a href="http://status.carpenoctem.co">status.carpenoctem.co</a>
+        see full list at <a href="http://status.carpenoctem.co" target="_blank">status.carpenoctem.co</a>
     </div>
 </div>
 
 <script id="cachet-group-template" type="x-tmpl-mustache">
     {{#groups}}
     <div id="status-group-{{id}}" class="status-group">
-        <div class="status-group-name">{{name}}</div>
+        <h4 class="status-group-name">{{name}}</h4>
             {{#components}}
                 {{>component}}
             {{/components}}
@@ -30,7 +31,9 @@
 <script id="cachet-component-template" type="x-tmpl-mustache">
     <div id="status-component-{{id}}" class="status-component">
         <div class="status-component-name">{{name}}</div>
-        <div class="status-component-status">{{statusName}}</div>
+        <div class="status-component-status status-code-{{status}}">
+            <span title="{{statusName}}"><i class="fa fa-circle" aria-hidden="true"></i></span>
+        </div>
         <div class="clearing"></div>
     </div>
 </script>
