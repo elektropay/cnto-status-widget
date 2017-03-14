@@ -1,0 +1,42 @@
+.status-group {
+    margin-bottom: 15px;
+}
+.status-group-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.status-component {
+    margin: 4px 0;
+}
+.status-component-name {
+    width: 90%;
+    float: left;
+}
+.status-component-status {
+    width: 5%;
+    text-align: right;
+    float:right;
+}
+.clearing {
+    clear: both;
+}
+.status-error-display {
+    text-align: center;
+    color: #ff6f6f;
+    margin-bottom: 15px;
+}
+.status-full-link-reference {
+    margin-top: 10px;
+}
+.status-code-1 {
+    color: #87d631;
+}
+.status-code-2 {
+    color: #f8dda4;
+}
+.status-code-3 {
+    color: #ff6f6f;
+}
+.status-code-4 {
+    color: #ff6f6f;
+}
