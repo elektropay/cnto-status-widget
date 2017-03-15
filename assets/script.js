@@ -1,5 +1,15 @@
 var config = {
     cachet_api_url: "http://status.carpenoctem.co/api/v1/",
+    alias: [
+        {   cachet_name: "operation capture and playback system",
+            widget_name: "OCAP" },
+        {   cachet_name: "main arma3 server",
+            widget_name: "Private Server" },
+        {   cachet_name: "development arma3 server",
+            widget_name: "Development Server" },
+        {   cachet_name: "arma3 mods repository",
+            widget_name: "REPO" }
+    ]
 }
 
 function refresh() {
@@ -77,7 +87,7 @@ function parseSingleComponent(component) {
     var componentData = {};
 
     componentData.id = component.id;
-    componentData.name = component.name;
+    componentData.name = getComponentAlias(component.name);
     componentData.description = component.description;
     componentData.link = component.link;
     componentData.status = component.status;
@@ -85,6 +95,16 @@ function parseSingleComponent(component) {
     componentData.statusName = component.status_name;
 
     return componentData;
+}
+
+function getComponentAlias(componentName) {
+    for(var i = 0; i < config.alias.length; i++) {
+        if(config.alias[i].cachet_name.toUpperCase() == componentName.toUpperCase()) {
+            return config.alias[i].widget_name;
+        }
+    }
+
+    return componentName;
 }
 
 function groupHasComponents(group) {
